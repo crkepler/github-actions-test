@@ -6,7 +6,14 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: list files
+      - name: list files before checkout
+        run: |
+          pwd
+          ls -al
+        #could use here git fetch ... but use an action instead
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: list files after checkout
         run: |
           pwd
           ls -al
