@@ -6,16 +6,16 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      # Could use here git fetch ... but use an action instead
+      #
+      # Some built-in environmental variables and expressions we can use
+      # github.token: the authentication token for your own repo
+      # E.g. git clone git@github:$GITHUB_REPOSITORY (could do this
+      # instead of the action
       - name: list files before checkout
         run: |
           pwd
           ls -al
-        # Could use here git fetch ... but use an action instead
-        #
-        # Some built-in environmental variables and expressions we can use
-        # github.token: the authentication token for your own repo
-        # E.g. git clone git@github:$GITHUB_REPOSITORY (could do this
-        # instead of the action
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
