@@ -19,8 +19,8 @@ jobs:
           print(platform.processor())
   run-windows-command:
     runs-on: windows-latest
-    #if we want to add a dependency on another job to run them in serioes
-    #instead of running them in parallel
+    #if we want to add a dependency on another job to run them in series
+    #instead of running them in parallel: (comment out line to parallelize them)
     needs: ["run-shell-command"]
     steps:
       - name: Directory list Powershell
