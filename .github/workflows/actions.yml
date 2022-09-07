@@ -6,6 +6,10 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: list files
+        run: |
+          pwd
+          ls -al
       - name: simple JS action
         id: greet-1
         #insted of "run" and it references another GitHub repo:
