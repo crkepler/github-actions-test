@@ -10,7 +10,16 @@ jobs:
         run: |
           pwd
           ls -al
-        #could use here git fetch ... but use an action instead
+        # Could use here git fetch ... but use an action instead
+        #
+        # Some built-in environmental variables and expressions we can use
+        # github.token: the authentication token for your own repo
+        # E.g. git clone git@github:$GITHUB_REPOSITORY (could do this
+        # instead of the action
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "{{ github.token }}"
       - name: checkout
         uses: actions/checkout@v1
       - name: list files after checkout
@@ -19,9 +28,9 @@ jobs:
           ls -al
       - name: simple JS action
         id: greet-1
-        #insted of "run" and it references another GitHub repo:
+        # instead of "run" and it references another GitHub repo:
         uses: actions/hello-world-javascript-action@v1
-        #the parameters
+        # the parameters
         with:
           who-to-greet: Roger
       - name: log greeting time
