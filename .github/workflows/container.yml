@@ -1,13 +1,14 @@
 name: Container test
 on: push
+
 jobs:
   node-docker:
     runs-on: ubuntu-latest
     container:
       image: node:13.5.0-alpine3.10
     steps:
-      name: log NodeJS version
-      run: node -v
+      - name: log NodeJS version
+        run: node -v
 
 
 
